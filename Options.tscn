@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://odin_large.fnt" type="BitmapFont" id=1]
-[ext_resource path="res://roboto-regular.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Options.gd" type="Script" id=1]
+[ext_resource path="res://odin_large.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Elligible.fnt" type="BitmapFont" id=3]
 
 [node name="Options" type="Control"]
 
@@ -13,10 +14,10 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
+script/script = ExtResource( 1 )
 
 [node name="Video" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -36,7 +37,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 84.0
 margin/bottom = 37.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Video"
 percent_visible = 1.0
 lines_skipped = 0
@@ -52,13 +53,13 @@ margin/left = 30.0
 margin/top = 40.0
 margin/right = 129.0
 margin/bottom = 62.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Resolution:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="OptionButton" type="OptionButton" parent="Video/Resolution"]
+[node name="ResOpt" type="OptionButton" parent="Video/Resolution"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -66,12 +67,12 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 100.0
 margin/top = 0.0
-margin/right = 169.0
+margin/right = 194.0
 margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Item 0"
+text = "800x600"
 flat = false
 align = 0
 selected = 0
@@ -87,13 +88,13 @@ margin/left = 60.0
 margin/top = 68.0
 margin/right = 130.0
 margin/bottom = 90.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Display:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="OptionButton" type="OptionButton" parent="Video/WindowType"]
+[node name="DispOpt" type="OptionButton" parent="Video/WindowType"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -101,12 +102,12 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 70.0
 margin/top = 0.0
-margin/right = 139.0
+margin/right = 176.0
 margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Item 0"
+text = "Windowed"
 flat = false
 align = 0
 selected = 0
@@ -122,13 +123,13 @@ margin/left = 10.0
 margin/top = 100.0
 margin/right = 130.0
 margin/bottom = 122.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Shadow Type:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="OptionButton" type="OptionButton" parent="Video/ShadowType"]
+[node name="ShadOpt" type="OptionButton" parent="Video/ShadowType"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -136,16 +137,16 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 120.0
 margin/top = 0.0
-margin/right = 189.0
+margin/right = 193.0
 margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Item 0"
+text = "None"
 flat = false
 align = 0
 selected = 0
-items = [ "None", null, false, -1, null, "PCF5", null, false, -1, null, "PCF13", null, false, -1, null, "ESM", null, false, -1, null ]
+items = [ "None", null, false, 0, null, "PCF5", null, false, 1, null, "PCF13", null, false, 2, null, "ESM", null, false, 3, null ]
 
 [node name="AA" type="Label" parent="Video"]
 
@@ -157,13 +158,13 @@ margin/left = 10.0
 margin/top = 130.0
 margin/right = 129.0
 margin/bottom = 152.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Anti-Aliasing:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="OptionButton" type="OptionButton" parent="Video/AA"]
+[node name="AAOpt" type="OptionButton" parent="Video/AA"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -191,21 +192,21 @@ margin/left = 8.0
 margin/top = 160.0
 margin/right = 130.0
 margin/bottom = 182.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Vertical-Sync:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CheckBox" type="CheckBox" parent="Video/Vsync"]
+[node name="VSOpt" type="CheckBox" parent="Video/Vsync"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 120.0
+margin/left = 130.0
 margin/top = 0.0
-margin/right = 146.0
+margin/right = 156.0
 margin/bottom = 23.0
 toggle_mode = true
 enabled_focus_mode = 2
@@ -235,7 +236,7 @@ margin/left = 0.0
 margin/top = 190.0
 margin/right = 87.0
 margin/bottom = 227.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Audio"
 percent_visible = 1.0
 lines_skipped = 0
@@ -251,7 +252,7 @@ margin/left = 20.0
 margin/top = 230.0
 margin/right = 131.0
 margin/bottom = 252.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "SFX Volume:"
 align = 2
 percent_visible = 1.0
@@ -289,7 +290,7 @@ margin/left = 0.0
 margin/top = 260.0
 margin/right = 130.0
 margin/bottom = 282.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Music Volume:"
 align = 2
 percent_visible = 1.0
@@ -327,7 +328,7 @@ margin/left = 45.0
 margin/top = 290.0
 margin/right = 130.0
 margin/bottom = 312.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Subtitles:"
 align = 2
 percent_visible = 1.0
@@ -372,7 +373,7 @@ margin/left = 0.0
 margin/top = 300.0
 margin/right = 81.0
 margin/bottom = 337.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Input"
 percent_visible = 1.0
 lines_skipped = 0
@@ -388,7 +389,7 @@ margin/left = 16.0
 margin/top = 380.0
 margin/right = 170.0
 margin/bottom = 402.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Enable Gamepad:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -420,14 +421,14 @@ margin/left = 10.0
 margin/top = 340.0
 margin/right = 189.0
 margin/bottom = 368.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Configure Bindings"
 flat = false
 
-[node name="Back" type="Button" parent="."]
+[node name="Apply" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -437,7 +438,7 @@ margin/left = 950.0
 margin/top = 560.0
 margin/right = 1011.0
 margin/bottom = 588.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -454,14 +455,14 @@ margin/left = 80.0
 margin/top = 560.0
 margin/right = 156.0
 margin/bottom = 588.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Default"
 flat = false
 
-[node name="Apply" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -471,7 +472,7 @@ margin/left = 10.0
 margin/top = 560.0
 margin/right = 65.0
 margin/bottom = 588.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -493,5 +494,19 @@ popup/exclusive = false
 window/title = "Alert!"
 dialog/text = "Are you ok with these changes\?"
 dialog/hide_on_ok = true
+
+[connection signal="item_selected" from="Video/Resolution/ResOpt" to="." method="_on_ResOpt_item_selected"]
+
+[connection signal="item_selected" from="Video/WindowType/DispOpt" to="." method="_on_DispOpt_item_selected"]
+
+[connection signal="item_selected" from="Video/ShadowType/ShadOpt" to="." method="_on_ShadOpt_item_selected"]
+
+[connection signal="item_selected" from="Video/AA/AAOpt" to="." method="_on_AAOpt_item_selected"]
+
+[connection signal="pressed" from="Video/Vsync/VSOpt" to="." method="_on_VSOpt_pressed"]
+
+[connection signal="pressed" from="Apply" to="." method="_on_Apply_pressed"]
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
 

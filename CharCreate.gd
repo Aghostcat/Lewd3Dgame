@@ -50,7 +50,7 @@ func _ready():
 
 func _on_Confirm_pressed():
 	var savegame = File.new()
-	savegame.open("C:/Users/Hoshiko/Desktop/savegame.xml", File.WRITE)
+	savegame.open("C:/Users/Hoshiko/Desktop/savegame.save", File.WRITE)
 	savegame.store_line(CharacterInfo.to_json())
 	print("Saved Game Data")
 
