@@ -3,8 +3,6 @@ extends Control
 ##########################
 #Script variables go here#
 ##########################
-var OptionSettings = {}
-
 
 func _ready():
 	pass
